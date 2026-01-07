@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genetic Simulation</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>Genetic Simulation</h1>
+        <p class="subtitle">Watch organisms evolve through natural selection</p>
+      </header>
+
+      <main>
+        <div id="simulation-container">
+          <canvas id="simulation-canvas"></canvas>
+        </div>
+
+        <aside id="sidebar">
+          <section id="controls-panel">
+            <h2>Controls</h2>
+            <div class="button-group">
+              <button id="pause-btn">Pause</button>
+              <button id="reset-btn">Reset</button>
+            </div>
+
+            <div class="slider-group">
+              <label>
+                <span>Simulation Speed: <span id="speed-value">1</span>x</span>
+                <input type="range" id="sim-speed" min="1" max="5" value="1" step="1" />
+              </label>
+            </div>
+
+            <div class="slider-group">
+              <label>
+                <span>Mutation Rate: <span id="mutation-value">0.15</span></span>
+                <input type="range" id="mutation-rate" min="0" max="0.5" value="0.15" step="0.01" />
+              </label>
+            </div>
+
+            <div class="slider-group">
+              <label>
+                <span>Food Spawn Rate: <span id="food-value">0.30</span></span>
+                <input type="range" id="food-rate" min="0.1" max="1" value="0.3" step="0.05" />
+              </label>
+            </div>
+          </section>
+
+          <section id="stats-panel">
+            <h2>Statistics</h2>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-label">Population</span>
+                <span class="stat-value" id="stat-population">0</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Generation</span>
+                <span class="stat-value" id="stat-generation">0</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Food</span>
+                <span class="stat-value" id="stat-food">0</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Births</span>
+                <span class="stat-value positive" id="stat-births">0</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Deaths</span>
+                <span class="stat-value negative" id="stat-deaths">0</span>
+              </div>
+            </div>
+
+            <h3>Average Traits</h3>
+            <div class="traits-grid">
+              <div class="trait-item">
+                <span class="trait-label">Speed</span>
+                <span class="trait-value" id="stat-avg-speed">0.00</span>
+              </div>
+              <div class="trait-item">
+                <span class="trait-label">Size</span>
+                <span class="trait-value" id="stat-avg-size">0.00</span>
+              </div>
+              <div class="trait-item">
+                <span class="trait-label">Perception</span>
+                <span class="trait-value" id="stat-avg-perception">0.00</span>
+              </div>
+              <div class="trait-item">
+                <span class="trait-label">Efficiency</span>
+                <span class="trait-value" id="stat-avg-efficiency">0.00</span>
+              </div>
+            </div>
+          </section>
+
+          <section id="legend-panel">
+            <h2>Legend</h2>
+            <div class="legend-item">
+              <span class="legend-dot organism"></span>
+              <span>Organisms (color = unique genetic lineage)</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot food"></span>
+              <span>Food sources</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-bar"></span>
+              <span>Energy level (red = low, green = high)</span>
+            </div>
+          </section>
+        </aside>
+      </main>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
